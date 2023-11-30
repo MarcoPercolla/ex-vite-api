@@ -11,6 +11,7 @@ export default {
   },
   data() {
     return {
+      beers: ""
 
     }
   },
@@ -20,13 +21,14 @@ export default {
   methods: {
     getBeer() {
       axios.get(`https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=10`).then(risultato => {
-        console.log(risultato.data)
+        console.log(risultato.data),
+          this.beers = risultato.data
       });
     },
   }
 }
 </script>
 <template>
-  <AppCardDeck />
+  <AppCardDeck v-for="beer in this.beers" :subject="beer" />
 </template>
 <style scoped></style>

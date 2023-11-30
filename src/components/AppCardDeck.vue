@@ -1,6 +1,7 @@
 <script>
 import AppCard from './AppCard.vue';
 export default {
+    props: ["subject"],
     components: {
         AppCard,
 
@@ -21,7 +22,6 @@ export default {
 
 </script>
 <template>
-    <div>ciao</div>
-    <AppCard />
+    <AppCard :name="subject.name" :city="subject.city" :type="subject.brewery_type" />
 </template>
 <style scoped></style>
