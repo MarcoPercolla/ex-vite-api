@@ -29,6 +29,15 @@ export default {
 }
 </script>
 <template>
-  <AppCardDeck v-for="beer in this.beers" :subject="beer" />
+  <div class="deck">
+
+    <AppCardDeck v-for="beer in this.beers" :subject="beer" />
+
+  </div>
 </template>
-<style scoped></style>
+<style scoped>
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
