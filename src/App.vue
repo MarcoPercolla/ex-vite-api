@@ -1,8 +1,12 @@
 <script>
+import AppCard from './components/AppCard.vue';
+import AppCardDeck from './components/AppCardDeck.vue';
 import axios from 'axios'; //importo Axios
 
 export default {
   components: {
+    AppCard,
+    AppCardDeck
 
   },
   data() {
@@ -23,6 +27,6 @@ export default {
 }
 </script>
 <template>
-  <div>prova</div>
+  <AppCardDeck />
 </template>
 <style scoped></style>
