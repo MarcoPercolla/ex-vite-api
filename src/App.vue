@@ -27,16 +27,16 @@ export default {
       let indirizzo = this.store.apiUrl;
 
       if (this.store.searchString.length) {
-        indirizzo = `${this.store.apiUrl}&?by_postal=${this.store.searchString}&per_page=10`;
+        indirizzo = `${this.store.apiUrl}&by_postal=${this.store.searchString}&per_page=10`;
         axios.get(`${indirizzo} `).then(risultato => {
-          console.log(indirizzo),
-            this.beers = risultato.data
+
+          this.beers = risultato.data
+
         });
 
       } else {
         axios.get(`${indirizzo}& per_page=10`).then(risultato => {
-          console.log(risultato.data),
-            this.beers = risultato.data
+          this.beers = risultato.data
         });
 
       }
