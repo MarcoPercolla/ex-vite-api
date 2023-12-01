@@ -24,15 +24,29 @@ export default {
   },
   methods: {
     getBeer() {
-      axios.get(`https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=10`).then(risultato => {
-        console.log(risultato.data),
-          this.beers = risultato.data
-      });
+      let indirizzo = this.store.apiUrl;
+
+      if (this.store.searchString.length) {
+        indirizzo = `${this.store.apiUrl}&?by_postal=${this.store.searchString}&per_page=10`;
+        axios.get(`${indirizzo} `).then(risultato => {
+          console.log(indirizzo),
+            this.beers = risultato.data
+        });
+
+      } else {
+        axios.get(`${indirizzo}& per_page=10`).then(risultato => {
+          console.log(risultato.data),
+            this.beers = risultato.data
+        });
+
+      }
+
     },
   }
 }
 </script>
 <template>
+  <AppSearch @search="getBeer" />
   <div class="deck">
 
     <AppCardDeck v-for="beer in this.beers" :subject="beer" />
