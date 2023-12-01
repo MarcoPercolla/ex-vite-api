@@ -1,17 +1,21 @@
 <script>
 import AppCard from './components/AppCard.vue';
 import AppCardDeck from './components/AppCardDeck.vue';
+import AppSearch from "./components/AppSearch.vue"
 import axios from 'axios'; //importo Axios
+import { store } from "./store.js"
 
 export default {
   components: {
     AppCard,
-    AppCardDeck
+    AppCardDeck,
+    AppSearch
 
   },
   data() {
     return {
-      beers: ""
+      beers: "",
+      store
 
     }
   },
